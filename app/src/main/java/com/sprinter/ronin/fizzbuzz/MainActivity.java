@@ -9,25 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import static android.view.View.*;
+
+public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Button btn_submmit = (Button)findViewById(R.id.btn_submit);
-        final EditText text_input = (EditText)findViewById(R.id.text_input);
-        final TextView text_result = (TextView)findViewById(R.id.text_result);
-
-        btn_submmit.setOnClickListener(
-                new Button.OnClickListener() {
-                    public void onClick(View v) {
-                        FizzBuzz fizzbuzz = new FizzBuzz();
-                        text_result.setText(fizzbuzz.show(Integer.parseInt(text_input.getText().toString())));
-                    }
-                }
-        );
+        btn_submmit.setOnClickListener(this);
     }
 
     @Override
@@ -50,5 +41,22 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        final EditText text_input = (EditText)findViewById(R.id.text_input);
+        final TextView text_result = (TextView)findViewById(R.id.text_result);
+
+        FizzBuzz fizzbuzz = new FizzBuzz();
+
+        try {
+            String data_text_input = text_input.getText().toString();
+            int input_number = Integer.parseInt(data_text_input);
+            String anwser = fizzbuzz.show(input_number);
+            text_result.setText(anwser);
+        }catch (NumberFormatException errors){
+            text_result.setText("กรุณากรอกตัวเลขด้วยเด้อ!");
+        }
     }
 }
