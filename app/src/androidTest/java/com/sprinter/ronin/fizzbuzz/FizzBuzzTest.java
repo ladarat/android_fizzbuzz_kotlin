@@ -6,6 +6,8 @@ import android.test.suitebuilder.annotation.LargeTest;
 import com.sprinter.ronin.fizzbuzz.MainActivity;
 import com.sprinter.ronin.fizzbuzz.R;
 
+import java.lang.Long;
+
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
@@ -53,6 +55,13 @@ public class FizzBuzzTest extends  ActivityInstrumentationTestCase2<MainActivity
         onView(withId(R.id.text_input)).perform(typeText(String.valueOf(15)));
         onView(withId(R.id.btn_submit)).perform(click());
         onView(withId(R.id.text_result)).check(matches(withText("FizzBuzz")));
+    }
+
+    public void testInputNumberMoreThanNineteenDigit(){
+        String data = "12345678912345678912";
+        onView(withId(R.id.text_input)).perform(typeText(String.valueOf(data)));
+        onView(withId(R.id.btn_submit)).perform(click());
+        onView(withId(R.id.text_result)).check(matches(withText("กรุณากรอกตัวเลขด้วยเด้อ!")));
     }
 
 }

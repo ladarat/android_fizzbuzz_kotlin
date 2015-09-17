@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         try {
             String data_text_input = text_input.getText().toString();
-            int input_number = Integer.parseInt(data_text_input);
+            Long input_number = Long.parseLong(data_text_input);
             String anwser = fizzbuzz.show(input_number);
             text_result.setText(anwser);
         }catch (NumberFormatException errors){

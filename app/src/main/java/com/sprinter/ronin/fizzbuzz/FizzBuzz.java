@@ -2,7 +2,7 @@ package com.sprinter.ronin.fizzbuzz;
 
 public class FizzBuzz {
 
-    public String show(int number) {
+    public String show(Long number) {
 
         if ((number % 15) == 0) {
             return  "FizzBuzz";
@@ -16,6 +16,6 @@ public class FizzBuzz {
             return  "Buzz";
         }
 
-        return Integer.toString(number);
+        return Long.toString(number);
     }
 }
