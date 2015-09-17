@@ -3,8 +3,9 @@ dependencies {
     def androidModule = project(':app')
     compile androidModule
 
-    testCompile androidModule.android.applicationVariants.toList().first().javaCompile.classpath
-    testCompile androidModule.android.applicationVariants.toList().first().javaCompile.outputs.files
+    testCompile androidModule.android.applicationVariants.find({it.name == 'debug'}).javaCompile.classpath
+    testCompile androidModule.android.applicationVariants.find({it.name == 'debug'}).javaCompile.outputs.files
     testCompile files(androidModule.android.getBootClasspath())
+
     testCompile 'junit:junit:4.+'
 }
