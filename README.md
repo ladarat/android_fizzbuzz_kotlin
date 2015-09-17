@@ -1,5 +1,4 @@
-# Run unit test
-
+# Run unit test on terminal
 
 Unix
 >./gradlew test
@@ -7,3 +6,8 @@ Unix
 Windows
 >gradlew test
 
+
+
+# Import project to new machine
+
+1. import project
