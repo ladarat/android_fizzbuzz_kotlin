@@ -25,7 +25,7 @@ public class FizzBuzzTest extends  ActivityInstrumentationTestCase2<MainActivity
 
     public void testClickButtonNotInputText() {
         onView(withId(R.id.btn_submit)).perform(click());
-        onView(withId(R.id.text_result)).check(matches(withText("1กรุณากรอกตัวเลขด้วยเด้อ!")));
+        onView(withId(R.id.text_result)).check(matches(withText("กรุณากรอกตัวเลขด้วยเด้อ!")));
     }
 
     public void testInputEnDashShouldReturn1AndClick(){
