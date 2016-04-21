@@ -3,11 +3,6 @@ package com.sprinter.ronin.fizzbuzz;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.suitebuilder.annotation.LargeTest;
 
-import com.sprinter.ronin.fizzbuzz.MainActivity;
-import com.sprinter.ronin.fizzbuzz.R;
-
-import java.lang.Long;
-
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
@@ -29,6 +24,12 @@ public class FizzBuzzTest extends  ActivityInstrumentationTestCase2<MainActivity
     }
 
     public void testClickButtonNotInputText() {
+        onView(withId(R.id.btn_submit)).perform(click());
+        onView(withId(R.id.text_result)).check(matches(withText("1กรุณากรอกตัวเลขด้วยเด้อ!")));
+    }
+
+    public void testInputEnDashShouldReturn1AndClick(){
+        onView(withId(R.id.text_input)).perform(typeText(String.valueOf("-")));
         onView(withId(R.id.btn_submit)).perform(click());
         onView(withId(R.id.text_result)).check(matches(withText("กรุณากรอกตัวเลขด้วยเด้อ!")));
     }
@@ -61,7 +62,7 @@ public class FizzBuzzTest extends  ActivityInstrumentationTestCase2<MainActivity
         String data = "12345678912345678912";
         onView(withId(R.id.text_input)).perform(typeText(String.valueOf(data)));
         onView(withId(R.id.btn_submit)).perform(click());
-        onView(withId(R.id.text_result)).check(matches(withText("กรุณากรอกตัวเลขด้วยเด้อ!")));
+        onView(withId(R.id.text_result)).check(matches(withText("กรอกแต่พองามนะ!")));
     }
 
 }

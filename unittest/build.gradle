@@ -1,6 +1,7 @@
 apply plugin: 'java'
 dependencies {
-    def androidModule = project(':app')
+//    def androidModule = project(':app')
+    def androidModule = evaluationDependsOn(':app')
     compile androidModule
 
     testCompile androidModule.android.applicationVariants.find({it.name == 'debug'}).javaCompile.classpath

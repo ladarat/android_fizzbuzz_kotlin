@@ -7,7 +7,7 @@ public class FizzBuzzTest {
 
     @Test
     public void input_1_print_1() throws Exception {
-        Long input = Long.valueOf(1);
+        Long input = Long.valueOf(1n);
         FizzBuzz fizzbuzz = new FizzBuzz();
         Assert.assertEquals("1", fizzbuzz.show(input));
 
